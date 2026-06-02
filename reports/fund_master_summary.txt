@@ -1,0 +1,32 @@
+Total Schemes: 1200
+Fund Houses: 35
+
+Top Categories:
+Equity
+Debt
+Hybrid
+
+Fund House
+SBI Mutual Fund             5
+HDFC Mutual Fund            5
+ICICI Prudential MF         5
+Nippon India MF             5
+Kotak Mahindra MF           4
+Axis Mutual Fund            4
+Aditya Birla Sun Life MF    3
+UTI Mutual Fund             3
+Mirae Asset MF              3
+DSP Mutual Fund             3
+
+
+Risk Category
+Moderate           16
+High                8
+Very High           6
+Low                 6
+Moderately High     4
+
+
+Missing Values:
+risk_grade: 12
+category: 5
