@@ -70,3 +70,123 @@ Source: 07_scheme_performance.csv
 | expense_ratio_pct  | REAL    | Expense ratio percentage            |
 | morningstar_rating | INTEGER | Rating from 1 to 5                  |
 | risk_grade         | TEXT    | Risk classification                 | 
+
+
+# clean_01_fund_master.csv
+
+| Column Name        | Data Type | Description                            |
+|--------------------|-----------|----------------------------------------|
+| amfi_code          | INTEGER   | Unique AMFI scheme identifier          |
+| fund_house         | TEXT      | Mutual fund company name               |
+| scheme_name        | TEXT      | Name of the mutual fund scheme         |
+| category           | TEXT      | Primary scheme category                |
+| sub_category       | TEXT      | Detailed scheme category               |
+| plan               | TEXT      | Regular or Direct plan                 |
+| launch_date        | DATE      | Scheme launch date                     |
+| benchmark          | TEXT      | Benchmark index used for comparison    |
+| expense_ratio_pct  | REAL      | Annual expense ratio (%)               |
+| exit_load_pct      | REAL      | Exit load charged on redemption (%)    |
+| min_sip_amount     | REAL      | Minimum SIP investment amount (INR)    |
+| min_lumpsum_amount | REAL      | Minimum lumpsum investment amount(INR) |
+| fund_manager       | TEXT      | Fund manager name                      |
+| risk_category      | TEXT      | Risk classification of scheme          |
+| sebi_category_code | TEXT      | SEBI assigned category code            |
+
+Source: AMFI Fund Master Dataset
+
+---
+
+# clean_03_aum_by_fund_house.csv
+
+| Column Name    | Data Type | Description                          |
+|----------------|-----------|--------------------------------------|
+| date           | DATE      | Reporting date                       |  
+| fund_house     | TEXT      | Mutual fund company                  |
+| aum_lakh_crore | REAL      | Assets under management (Lakh Crore) |
+| aum_crore      | REAL      | Assets under management (Crore)      |
+| num_schemes    | INTEGER   | Number of active schemes             |
+
+Source: AMFI AUM Reports
+
+---
+
+# clean_04_monthly_sip_inflows.csv
+
+| Column Name | Data Type | Description |
+|------------|-----------|-------------|
+| month | DATE | Monthly reporting period |
+| sip_inflow_crore | REAL | Total SIP inflows (Crore INR) |
+| active_sip_accounts_crore | REAL | Active SIP accounts (Crore) |
+| new_sip_accounts_lakh | REAL | New SIP registrations (Lakh) |
+| sip_aum_lakh_crore | REAL | SIP assets under management |
+| yoy_growth_pct | REAL | Year-over-year SIP growth (%) |
+
+Source: AMFI SIP Industry Data
+
+---
+
+# clean_05_category_inflows.csv
+
+| Column Name | Data Type | Description |
+|------------|-----------|-------------|
+| month | DATE | Monthly reporting period |
+| category | TEXT | Mutual fund category |
+| net_inflow_crore | REAL | Net inflow/outflow amount (Crore INR) |
+
+Source: AMFI Category Flow Data
+
+---
+
+# clean_06_industry_folio_count.csv
+
+| Column Name | Data Type | Description |
+|------------|-----------|-------------|
+| month | DATE | Reporting month |
+| total_folios_crore | REAL | Total investor folios |
+| equity_folios_crore | REAL | Equity scheme folios |
+| debt_folios_crore | REAL | Debt scheme folios |
+| hybrid_folios_crore | REAL | Hybrid scheme folios |
+| others_folios_crore | REAL | Other category folios |
+
+Source: AMFI Industry Statistics
+
+---
+
+# clean_09_portfolio_holdings.csv
+
+| Column Name | Data Type | Description |
+|------------|-----------|-------------|
+| amfi_code | INTEGER | Mutual fund scheme identifier |
+| stock_symbol | TEXT | NSE/BSE stock symbol |
+| stock_name | TEXT | Company name |
+| sector | TEXT | Industry sector |
+| weight_pct | REAL | Portfolio allocation (%) |
+| market_value_cr | REAL | Market value of holding (Crore INR) |
+| current_price_inr | REAL | Current stock price (INR) |
+| portfolio_date | DATE | Portfolio disclosure date |
+
+Source: Fund Portfolio Disclosure Data
+
+---
+
+# clean_10_benchmark_indices.csv
+
+| Column Name | Data Type | Description |
+|------------|-----------|-------------|
+| date | DATE | Trading date |
+| index_name | TEXT | Benchmark index name |
+| close_value | REAL | Closing index value |
+| daily_return_pct | REAL | Daily percentage return |
+
+Source: NSE Benchmark Index Data
+
+---
+
+## Notes
+
+- Monetary values are represented in Crore INR unless otherwise specified.
+- Dates are stored in ISO format (YYYY-MM-DD).
+- AMFI Code uniquely identifies each mutual fund scheme.
+- Negative values in net_inflow_crore indicate net outflows.
+- daily_return_pct is calculated during the data cleaning process.
+- AUM units are explicitly maintained to avoid confusion between Crore and Lakh Crore values.
