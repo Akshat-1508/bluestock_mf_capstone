@@ -107,3 +107,23 @@ fig = px.line(
 )
 
 st.plotly_chart(fig)
+
+fig = px.line(
+    sip,
+    x="month",
+    y="sip_inflow_crore",
+    markers=True
+)
+pivot = category.pivot(
+    index="category",
+    columns="month",
+    values="net_inflow_crore"
+)
+
+
+st.download_button(
+    "Download Sip Inflows Data",
+    sip.to_csv(index=False),
+    "performance.csv",
+    "text/csv"
+)

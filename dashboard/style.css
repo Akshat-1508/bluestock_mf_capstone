@@ -1,0 +1,77 @@
+:root{
+    --primary:#5B4DFF;
+    --secondary:#7B61FF;
+    --bg:#050B1A;
+    --card:#121B34;
+    --border:#2A355A;
+    --text:#FFFFFF;
+    --muted:#BFC7D5;
+}
+
+.stApp{
+    background:linear-gradient(
+        180deg,
+        #050B1A,
+        #081124
+    );
+}
+
+section[data-testid="stSidebar"]{
+    background:#0D1428;
+    border-right:2px solid #5B4DFF;
+}
+
+h1,h2,h3{
+    color:white !important;
+}
+
+div[data-testid="metric-container"]{
+    background:#121B34;
+    border:1px solid #2A355A;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 0 20px rgba(91,77,255,.25);
+}
+
+[data-testid="stDataFrame"]{
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.stButton>button{
+    width:100%;
+    border:none;
+    border-radius:12px;
+    color:white;
+    font-weight:bold;
+
+    background:linear-gradient(
+        135deg,
+        #5B4DFF,
+        #7B61FF
+    );
+}
+
+.stDownloadButton button{
+    width:100%;
+}
+
+div[data-baseweb="select"]{
+    background:#121B34;
+}
+
+.block-container{
+    padding-top:2rem;
+}
+
+.hero-card{
+    background:linear-gradient(
+        135deg,
+        #5B4DFF,
+        #7B61FF
+    );
+
+    border-radius:22px;
+    padding:35px;
+    color:white;
+}

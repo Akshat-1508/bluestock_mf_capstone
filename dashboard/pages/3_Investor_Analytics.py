@@ -35,6 +35,7 @@ fig = px.bar(
     orientation="h"
 )
 
+
 st.plotly_chart(
     fig,
     width="stretch"
@@ -105,4 +106,42 @@ fig = px.pie(
     title="T30 vs B30 Investors"
 )
 
+
 st.plotly_chart(fig)
+
+gender = (
+    txn.groupby("gender")
+    .size()
+    .reset_index(name="count")
+)
+
+fig = px.pie(
+    gender,
+    names="gender",
+    values="count",
+    hole=0.5
+)
+
+st.plotly_chart(fig)
+
+tier = (
+    txn.groupby("city_tier")
+    .size()
+    .reset_index(name="count")
+)
+
+fig = px.pie(
+    tier,
+    names="city_tier",
+    values="count",
+    hole=0.5
+)
+
+st.plotly_chart(fig)
+
+st.download_button(
+    "Download Transactions Data",
+    txn.to_csv(index=False),
+    "performance.csv",
+    "text/csv"
+)

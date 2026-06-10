@@ -22,6 +22,11 @@ def load_table(table_name):
 
     return df
 
+st.sidebar.markdown("""
+### 🎯 Filters
+---
+""")
+
 def get_filter_options():
     fund_master = load_table("fact_fund_master")
 

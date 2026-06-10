@@ -20,13 +20,18 @@ if category:
 
 fig = px.scatter(
     perf,
-    x="std_dev_ann_pct",
-    y="return_3yr_pct",
+    x="return_3yr_pct",
+    y="sharpe_ratio",
     size="aum_crore",
     color="category",
-    hover_name="scheme_name"
+    hover_name="scheme_name",
+    hover_data=[
+        "fund_house",
+        "return_5yr_pct",
+        "alpha",
+        "beta"
+    ]
 )
-
 st.plotly_chart(
     fig,
     width="stretch"
@@ -106,3 +111,21 @@ fig = px.line(
 )
 
 st.plotly_chart(fig)
+
+selected_fund = st.selectbox(
+    "Select Fund",
+    sorted(perf["scheme_name"].unique())
+)
+fund_data = perf[
+    perf["scheme_name"] == selected_fund
+]
+
+st.dataframe(fund_data)
+
+
+st.download_button(
+    "Download Data",
+    perf.to_csv(index=False),
+    "performance.csv",
+    "text/csv"
+)
